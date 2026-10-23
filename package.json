@@ -1,0 +1,19 @@
+{
+  "name": "aws-static-website",
+  "version": "1.0.0",
+  "description": "A professional, fully responsive static website built with **HTML5**, **CSS3**, and **vanilla JavaScript** — designed to be hosted on **Amazon S3** and delivered globally via **AWS CloudFront** using **Origin Access Control (OAC)**.",
+  "main": "script.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.3.0",
+    "uuid": "^14.0.3"
+  }
+}

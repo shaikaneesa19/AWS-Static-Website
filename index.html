@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn about static website hosting on AWS using Amazon S3 and CloudFront. A professional cloud computing project demonstration." />
+  <title>Static Website Hosting on AWS | Cloud Computing Project</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-icon">☁</span>
+        <span class="logo-text">AWS<span class="logo-accent">Cloud</span></span>
+      </a>
+      <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#cloud-intro" class="nav-link">Cloud</a></li>
+        <li><a href="#s3-section" class="nav-link">S3</a></li>
+        <li><a href="#cloudfront-section" class="nav-link">CloudFront</a></li>
+        <li><a href="#architecture" class="nav-link">Architecture</a></li>
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="/admin" class="nav-link nav-cta">Admin Panel</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════ HERO SECTION ═══════════════════ -->
+  <section id="hero" class="hero">
+    <div class="hero-particles" id="hero-particles"></div>
+    <div class="hero-content">
+      <div class="hero-badge">☁ Full-Stack AWS Cloud Project (Node.js + Express Backend)</div>
+      <h1 class="hero-title">
+        Welcome to My<br />
+        <span class="gradient-text">AWS Cloud Website</span>
+      </h1>
+      <p class="hero-subtitle">
+        A professional full-stack website with a <strong>Node.js & Express backend</strong>,
+        visitor analytics, real contact message handling, and an <strong>Admin Dashboard</strong>
+        — ready for static frontend hosting on <strong>Amazon S3 & CloudFront</strong>.
+      </p>
+      <div class="hero-actions">
+        <a href="#cloud-intro" class="btn btn-primary">
+          <span>Explore Project</span>
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href="/admin" class="btn btn-outline">Open Admin Dashboard</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number" data-target="99.99">0</span><span class="stat-suffix">%</span>
+          <span class="stat-label">Uptime SLA</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-target="450">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Edge Locations</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" id="hero-live-views">1</span>
+          <span class="stat-label">Live Page Views</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" id="hero-live-unique">1</span>
+          <span class="stat-label">Unique Visitors</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <span>Scroll to explore</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ CLOUD INTRO ═══════════════════ -->
+  <section id="cloud-intro" class="section cloud-intro">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Foundation</span>
+        <h2 class="section-title">Introduction to <span class="gradient-text">Cloud Computing</span></h2>
+        <p class="section-desc">
+          Cloud computing delivers on-demand IT resources over the internet with pay-as-you-go
+          pricing, eliminating the need to own and maintain physical data centres.
+        </p>
+      </div>
+
+      <div class="cloud-grid">
+        <div class="cloud-card" data-animate="fade-up">
+          <div class="card-icon-wrap"><span class="card-icon">⚡</span></div>
+          <h3>On-Demand Resources</h3>
+          <p>Access compute, storage, and networking instantly. Scale up or down in minutes rather than weeks — pay only for what you consume.</p>
+        </div>
+        <div class="cloud-card" data-animate="fade-up" data-delay="100">
+          <div class="card-icon-wrap"><span class="card-icon">🌐</span></div>
+          <h3>Global Reach</h3>
+          <p>Deploy applications across multiple geographic regions with a few clicks, bringing your content closer to users worldwide.</p>
+        </div>
+        <div class="cloud-card" data-animate="fade-up" data-delay="200">
+          <div class="card-icon-wrap"><span class="card-icon">🔒</span></div>
+          <h3>Enterprise Security</h3>
+          <p>Benefit from the extensive security infrastructure of AWS, including encryption, IAM, DDoS protection, and compliance certifications.</p>
+        </div>
+        <div class="cloud-card" data-animate="fade-up" data-delay="300">
+          <div class="card-icon-wrap"><span class="card-icon">💰</span></div>
+          <h3>Cost Optimisation</h3>
+          <p>Replace large capital expenditure with flexible operational costs. Auto-scaling ensures you never pay for idle resources.</p>
+        </div>
+        <div class="cloud-card" data-animate="fade-up" data-delay="400">
+          <div class="card-icon-wrap"><span class="card-icon">🚀</span></div>
+          <h3>High Availability</h3>
+          <p>AWS delivers 99.99 % uptime through redundant infrastructure across Availability Zones and Regions around the globe.</p>
+        </div>
+        <div class="cloud-card" data-animate="fade-up" data-delay="500">
+          <div class="card-icon-wrap"><span class="card-icon">🔧</span></div>
+          <h3>Managed Services</h3>
+          <p>Offload patching, backups, and monitoring to AWS. Focus on building features while Amazon handles infrastructure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ AMAZON S3 ═══════════════════ -->
+  <section id="s3-section" class="section s3-section">
+    <div class="container">
+      <div class="split-layout">
+        <div class="split-content" data-animate="fade-right">
+          <span class="section-tag">Storage</span>
+          <h2 class="section-title">Amazon <span class="gradient-text">S3</span></h2>
+          <p class="split-text">
+            Amazon Simple Storage Service (S3) is an object storage service offering
+            industry-leading scalability, data availability, security, and performance.
+            It stores data as objects within buckets and is the foundation of static
+            website hosting on AWS.
+          </p>
+          <ul class="feature-list">
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Static Website Hosting</strong>
+                <span>Serve HTML, CSS, JS, and media directly from an S3 bucket configured as a website endpoint.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>99.999999999 % Durability</strong>
+                <span>S3 automatically replicates data across multiple facilities within a region.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Versioning &amp; Lifecycle</strong>
+                <span>Protect against accidental deletes and automate transitions to cheaper storage classes.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Bucket Policies &amp; ACLs</strong>
+                <span>Fine-grained access control keeps your data private — OAC restricts access to CloudFront only.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="split-visual" data-animate="fade-left">
+          <div class="s3-bucket-visual">
+            <div class="bucket-header">
+              <span class="bucket-icon">🪣</span>
+              <span>my-website-bucket</span>
+            </div>
+            <div class="bucket-files">
+              <div class="bucket-file"><span class="file-icon html-icon">◆</span> index.html <span class="file-size">4.2 KB</span></div>
+              <div class="bucket-file"><span class="file-icon css-icon">◆</span> style.css <span class="file-size">12.8 KB</span></div>
+              <div class="bucket-file"><span class="file-icon js-icon">◆</span> script.js <span class="file-size">6.1 KB</span></div>
+              <div class="bucket-file"><span class="file-icon img-icon">◆</span> images/ <span class="file-size">1.4 MB</span></div>
+            </div>
+            <div class="bucket-status">
+              <span class="status-dot"></span> Region: ap-south-1
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ AWS CLOUDFRONT ═══════════════════ -->
+  <section id="cloudfront-section" class="section cloudfront-section">
+    <div class="container">
+      <div class="split-layout reverse">
+        <div class="split-content" data-animate="fade-left">
+          <span class="section-tag">CDN</span>
+          <h2 class="section-title">AWS <span class="gradient-text">CloudFront</span></h2>
+          <p class="split-text">
+            Amazon CloudFront is a fast Content Delivery Network (CDN) that securely
+            delivers data, videos, applications, and APIs to customers globally with
+            low latency and high transfer speeds. It integrates natively with S3 to
+            serve your static website from the nearest edge location.
+          </p>
+          <ul class="feature-list">
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>450 + Edge Locations</strong>
+                <span>Content is cached at points of presence worldwide, dramatically reducing load times.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>HTTPS &amp; TLS 1.3</strong>
+                <span>Free SSL/TLS certificates via AWS Certificate Manager for end-to-end encryption.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>Origin Access Control</strong>
+                <span>OAC ensures only CloudFront can access your S3 bucket — the bucket stays fully private.</span>
+              </div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div>
+                <strong>DDoS Protection</strong>
+                <span>Built-in AWS Shield Standard automatically mitigates common network and transport layer attacks.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="split-visual" data-animate="fade-right">
+          <div class="cdn-visual">
+            <div class="cdn-globe">
+              <div class="globe-ring ring-1"></div>
+              <div class="globe-ring ring-2"></div>
+              <div class="globe-ring ring-3"></div>
+              <div class="globe-core">CDN</div>
+              <div class="edge-node node-1" data-label="US-East">●</div>
+              <div class="edge-node node-2" data-label="EU-West">●</div>
+              <div class="edge-node node-3" data-label="AP-South">●</div>
+              <div class="edge-node node-4" data-label="AP-NE">●</div>
+              <div class="edge-node node-5" data-label="SA-East">●</div>
+              <div class="edge-node node-6" data-label="AF-South">●</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ ARCHITECTURE ═══════════════════ -->
+  <section id="architecture" class="section architecture-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">How It Works</span>
+        <h2 class="section-title">Project <span class="gradient-text">Architecture</span></h2>
+        <p class="section-desc">
+          A clear, three-step flow: visitors hit CloudFront, which fetches and caches
+          content from the private S3 origin — no direct bucket access allowed.
+        </p>
+      </div>
+
+      <div class="arch-diagram" data-animate="fade-up">
+        <!-- Step 1: Visitor -->
+        <div class="arch-node visitor-node">
+          <div class="arch-icon-wrap">
+            <span class="arch-icon">👤</span>
+          </div>
+          <h4>Visitor</h4>
+          <p>Browser sends<br />HTTPS request</p>
+        </div>
+
+        <!-- Arrow 1 -->
+        <div class="arch-arrow">
+          <div class="arrow-line">
+            <div class="arrow-pulse"></div>
+          </div>
+          <span class="arrow-label">HTTPS Request</span>
+        </div>
+
+        <!-- Step 2: CloudFront -->
+        <div class="arch-node cloudfront-node">
+          <div class="arch-icon-wrap cf-icon-wrap">
+            <span class="arch-icon">🌐</span>
+          </div>
+          <h4>CloudFront</h4>
+          <p>Edge cache &amp;<br />TLS termination</p>
+        </div>
+
+        <!-- Arrow 2 -->
+        <div class="arch-arrow">
+          <div class="arrow-line">
+            <div class="arrow-pulse"></div>
+          </div>
+          <span class="arrow-label">OAC (Private)</span>
+        </div>
+
+        <!-- Step 3: S3 -->
+        <div class="arch-node s3-node">
+          <div class="arch-icon-wrap s3-icon-wrap">
+            <span class="arch-icon">🪣</span>
+          </div>
+          <h4>Amazon S3</h4>
+          <p>Origin bucket<br />(private)</p>
+        </div>
+      </div>
+
+      <div class="arch-details" data-animate="fade-up">
+        <div class="arch-detail-card">
+          <span class="detail-num">01</span>
+          <h4>User Request</h4>
+          <p>A visitor enters your domain in their browser. DNS resolves to the nearest CloudFront edge location.</p>
+        </div>
+        <div class="arch-detail-card">
+          <span class="detail-num">02</span>
+          <h4>Edge Cache</h4>
+          <p>CloudFront checks its cache. On a hit, it returns the response immediately — no round-trip to the origin.</p>
+        </div>
+        <div class="arch-detail-card">
+          <span class="detail-num">03</span>
+          <h4>Origin Fetch</h4>
+          <p>On a cache miss, CloudFront uses Origin Access Control to securely fetch the object from the private S3 bucket.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FEATURES ═══════════════════ -->
+  <section id="features" class="section features-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Capabilities</span>
+        <h2 class="section-title">Project <span class="gradient-text">Features</span></h2>
+        <p class="section-desc">
+          Every component of this project has been designed with performance,
+          security, and developer experience in mind.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card" data-animate="fade-up">
+          <div class="feature-icon-circle">🚀</div>
+          <h3>Blazing-Fast Delivery</h3>
+          <p>CloudFront caches content at 450 + edge locations, delivering pages in under 50 ms to users worldwide.</p>
+        </div>
+        <div class="feature-card" data-animate="fade-up" data-delay="100">
+          <div class="feature-icon-circle">🔐</div>
+          <h3>Private S3 Origin</h3>
+          <p>The bucket blocks all public access. Only CloudFront — authenticated via OAC — can read the objects.</p>
+        </div>
+        <div class="feature-card" data-animate="fade-up" data-delay="200">
+          <div class="feature-icon-circle">📱</div>
+          <h3>Responsive Design</h3>
+          <p>Fluid layouts, flexible typography, and mobile-first CSS ensure the site looks stunning on every device.</p>
+        </div>
+        <div class="feature-card" data-animate="fade-up" data-delay="300">
+          <div class="feature-icon-circle">🎨</div>
+          <h3>Modern UI / UX</h3>
+          <p>Glassmorphism cards, smooth gradient animations, and micro-interactions create a premium look and feel.</p>
+        </div>
+        <div class="feature-card" data-animate="fade-up" data-delay="400">
+          <div class="feature-icon-circle">⚙️</div>
+          <h3>Zero Backend</h3>
+          <p>Pure HTML, CSS, and vanilla JavaScript — no frameworks, no servers, no build steps. Open-and-run simplicity.</p>
+        </div>
+        <div class="feature-card" data-animate="fade-up" data-delay="500">
+          <div class="feature-icon-circle">💡</div>
+          <h3>Cost Effective</h3>
+          <p>S3 + CloudFront hosting costs pennies per month for typical traffic — far cheaper than running EC2 instances.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ CONTACT ═══════════════════ -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Get in Touch</span>
+        <h2 class="section-title">Contact <span class="gradient-text">Me</span></h2>
+        <p class="section-desc">
+          Have questions about this project or want to collaborate? Drop a message below.
+        </p>
+      </div>
+
+      <div class="contact-layout">
+        <form id="contact-form" class="contact-form" data-animate="fade-right">
+          <div class="form-group">
+            <label for="contact-name">Full Name</label>
+            <input type="text" id="contact-name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Email Address</label>
+            <input type="email" id="contact-email" placeholder="you@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" rows="5" placeholder="Write your message here..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <span>Send Message</span>
+            <span class="btn-arrow">→</span>
+          </button>
+          <p id="form-status" class="form-status"></p>
+        </form>
+
+        <div class="contact-info" data-animate="fade-left">
+          <div class="info-card">
+            <span class="info-icon">📧</span>
+            <h4>Email</h4>
+            <p>your.email@example.com</p>
+          </div>
+          <div class="info-card">
+            <span class="info-icon">📍</span>
+            <h4>Location</h4>
+            <p>India</p>
+          </div>
+          <div class="info-card">
+            <span class="info-icon">🔗</span>
+            <h4>GitHub</h4>
+            <p>github.com/yourusername</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#hero" class="nav-logo">
+            <span class="logo-icon">☁</span>
+            <span class="logo-text">AWS<span class="logo-accent">Cloud</span></span>
+          </a>
+          <p>A cloud computing project demonstrating static website hosting with Amazon S3 and CloudFront.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#cloud-intro">Cloud Computing</a></li>
+            <li><a href="#s3-section">Amazon S3</a></li>
+            <li><a href="#cloudfront-section">CloudFront</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Project</h4>
+          <ul>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>AWS Resources</h4>
+          <ul>
+            <li><a href="https://aws.amazon.com/s3/" target="_blank" rel="noopener">Amazon S3 ↗</a></li>
+            <li><a href="https://aws.amazon.com/cloudfront/" target="_blank" rel="noopener">CloudFront ↗</a></li>
+            <li><a href="https://docs.aws.amazon.com/" target="_blank" rel="noopener">AWS Docs ↗</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Static Website Hosting on AWS. Built with HTML, CSS &amp; JavaScript.</p>
+        <button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
